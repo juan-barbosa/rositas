@@ -1,13 +1,503 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Rosas</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Night Garden with Animated Roses</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+        }
+        .garden-container {
+            width: 100%;
+            max-width: 100%;
+            margin: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+    </style>
 </head>
 <body>
-  <app-root></app-root>
+    <div class="garden-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+            <!-- Dark background -->
+            <rect width="400" height="300" fill="#0a0a2a"/>
+
+            <!-- Enhanced neon star filter -->
+            <defs>
+                <filter id="extremeNeonGlow" x="-500%" y="-500%" width="1000%" height="1000%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur1"/>
+                    <feColorMatrix in="blur1" type="matrix" values="
+                        1 0 0 0 1
+                        0 1 0 0 1
+                        0 0 1 0 0.3
+                        0 0 0 3 0" result="glow1"/>
+                    <feGaussianBlur in="glow1" stdDeviation="3.5" result="blur2"/>
+                    <feColorMatrix in="blur2" type="matrix" values="
+                        1 0 0 0 1
+                        0 1 0 0 1
+                        0 0 1 0 0.3
+                        0 0 0 1.5 0" result="glow2"/>
+                    <feGaussianBlur in="glow2" stdDeviation="2" result="blur3"/>
+                    <feMerge>
+                        <feMergeNode in="blur3"/>
+                        <feMergeNode in="blur2"/>
+                        <feMergeNode in="blur1"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <!-- Improved grass gradient -->
+            <defs>
+                <linearGradient id="grassGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" style="stop-color:#0a3300;stop-opacity:0.7"/>
+                    <stop offset="40%" style="stop-color:#072500;stop-opacity:0.8"/>
+                    <stop offset="100%" style="stop-color:#051500;stop-opacity:0.9"/>
+                </linearGradient>
+                <filter id="grassBlur" x="-10%" y="-10%" width="120%" height="120%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="1.5"/>
+                </filter>
+            </defs>
+
+            <!-- Base grass layer with smoother gradient -->
+            <path d="M0 200 Q200 180 400 200 L400 300 L0 300 Z" fill="url(#grassGradient)" filter="url(#grassBlur)"/>
+
+            <!-- Enhanced grass detail layers -->
+            <g opacity="0.6">
+                <!-- Multiple rows of grass blades -->
+                <g stroke="#0a4700" stroke-width="0.5" fill="none">
+                    <!-- Row 1 (back) -->
+                    <g transform="translate(0,210)">
+                        <path d="M0 0 C5 -10 0 -20 -5 -25" />
+                        <path d="M20 0 C25 -15 20 -25 15 -30" />
+                        <path d="M40 0 C45 -12 40 -22 35 -27" />
+                        <path d="M60 0 C65 -10 60 -20 55 -25" />
+                        <path d="M80 0 C85 -15 80 -25 75 -30" />
+                        <path d="M100 0 C105 -12 100 -22 95 -27" />
+                        <path d="M120 0 C125 -10 120 -20 115 -25" />
+                        <path d="M140 0 C145 -15 140 -25 135 -30" />
+                        <path d="M160 0 C165 -12 160 -22 155 -27" />
+                        <path d="M180 0 C185 -10 180 -20 175 -25" />
+                        <path d="M200 0 C205 -15 200 -25 195 -30" />
+                        <path d="M220 0 C225 -12 220 -22 215 -27" />
+                        <path d="M240 0 C245 -10 240 -20 235 -25" />
+                        <path d="M260 0 C265 -15 260 -25 255 -30" />
+                        <path d="M280 0 C285 -12 280 -22 275 -27" />
+                        <path d="M300 0 C305 -10 300 -20 295 -25" />
+                        <path d="M320 0 C325 -15 320 -25 315 -30" />
+                        <path d="M340 0 C345 -12 340 -22 335 -27" />
+                        <path d="M360 0 C365 -10 360 -20 355 -25" />
+                        <path d="M380 0 C385 -15 380 -25 375 -30" />
+                        <path d="M400 0 C405 -12 400 -22 395 -27" />
+                    </g>
+                    <!-- Row 2 (middle) -->
+                    <g transform="translate(10,230)">
+                        <path d="M0 0 C5 -8 0 -18 -5 -23" />
+                        <path d="M20 0 C25 -13 20 -23 15 -28" />
+                        <path d="M40 0 C45 -10 40 -20 35 -25" />
+                        <path d="M60 0 C65 -8 60 -18 55 -23" />
+                        <path d="M80 0 C85 -13 80 -23 75 -28" />
+                        <path d="M100 0 C105 -10 100 -20 95 -25" />
+                        <path d="M120 0 C125 -8 120 -18 115 -23" />
+                        <path d="M140 0 C145 -13 140 -23 135 -28" />
+                        <path d="M160 0 C165 -10 160 -20 155 -25" />
+                        <path d="M180 0 C185 -8 180 -18 175 -23" />
+                        <path d="M200 0 C205 -13 200 -23 195 -28" />
+                        <path d="M220 0 C225 -10 220 -20 215 -25" />
+                        <path d="M240 0 C245 -8 240 -18 235 -23" />
+                        <path d="M260 0 C265 -13 260 -23 255 -28" />
+                        <path d="M280 0 C285 -10 280 -20 275 -25" />
+                        <path d="M300 0 C305 -8 300 -18 295 -23" />
+                        <path d="M320 0 C325 -13 320 -23 315 -28" />
+                        <path d="M340 0 C345 -10 340 -20 335 -25" />
+                        <path d="M360 0 C365 -8 360 -18 355 -23" />
+                        <path d="M380 0 C385 -13 380 -23 375 -28" />
+                        <path d="M400 0 C405 -10 400 -20 395 -25" />
+                    </g>
+                    <!-- Row 3 (front) -->
+                    <g transform="translate(5,250)">
+                        <path d="M0 0 C5 -6 0 -16 -5 -21" />
+                        <path d="M20 0 C25 -11 20 -21 15 -26" />
+                        <path d="M40 0 C45 -8 40 -18 35 -23" />
+                        <path d="M60 0 C65 -6 60 -16 55 -21" />
+                        <path d="M80 0 C85 -11 80 -21 75 -26" />
+                        <path d="M100 0 C105 -8 100 -18 95 -23" />
+                        <path d="M120 0 C125 -6 120 -16 115 -21" />
+                        <path d="M140 0 C145 -11 140 -21 135 -26" />
+                        <path d="M160 0 C165 -8 160 -18 155 -23" />
+                        <path d="M180 0 C185 -6 180 -16 175 -21" />
+                        <path d="M200 0 C205 -11 200 -21 195 -26" />
+                        <path d="M220 0 C225 -8 220 -18 215 -23" />
+                        <path d="M240 0 C245 -6 240 -16 235 -21" />
+                        <path d="M260 0 C265 -11 260 -21 255 -26" />
+                        <path d="M280 0 C285 -8 280 -18 275 -23" />
+                        <path d="M300 0 C305 -6 300 -16 295 -21" />
+                        <path d="M320 0 C325 -11 320 -21 315 -26" />
+                        <path d="M340 0 C345 -8 340 -18 335 -23" />
+                        <path d="M360 0 C365 -6 360 -16 355 -21" />
+                        <path d="M380 0 C385 -11 380 -21 375 -26" />
+                        <path d="M400 0 C405 -8 400 -18 395 -23" />
+                    </g>
+
+                    <g transform="translate(15,270)">
+                      <path d="M0 0 C5 -10 0 -20 -5 -25" />
+                      <path d="M20 0 C25 -15 20 -25 15 -30" />
+                      <path d="M40 0 C45 -12 40 -22 35 -27" />
+                      <path d="M60 0 C65 -10 60 -20 55 -25" />
+                      <path d="M80 0 C85 -15 80 -25 75 -30" />
+                      <path d="M100 0 C105 -12 100 -22 95 -27" />
+                      <path d="M120 0 C125 -10 120 -20 115 -25" />
+                      <path d="M140 0 C145 -15 140 -25 135 -30" />
+                      <path d="M160 0 C165 -12 160 -22 155 -27" />
+                      <path d="M180 0 C185 -10 180 -20 175 -25" />
+                      <path d="M200 0 C205 -15 200 -25 195 -30" />
+                      <path d="M220 0 C225 -12 220 -22 215 -27" />
+                      <path d="M240 0 C245 -10 240 -20 235 -25" />
+                      <path d="M260 0 C265 -15 260 -25 255 -30" />
+                      <path d="M280 0 C285 -12 280 -22 275 -27" />
+                      <path d="M300 0 C305 -10 300 -20 295 -25" />
+                      <path d="M320 0 C325 -15 320 -25 315 -30" />
+                      <path d="M340 0 C345 -12 340 -22 335 -27" />
+                      <path d="M360 0 C365 -10 360 -20 355 -25" />
+                      <path d="M380 0 C385 -15 380 -25 375 -30" />
+                      <path d="M400 0 C405 -12 400 -22 395 -27" />
+                  </g>
+
+                  <g transform="translate(0,210)">
+                        <path d="M0 0 C5 -10 0 -20 -5 -25" />
+                        <path d="M20 0 C25 -15 20 -25 15 -30" />
+                        <path d="M40 0 C45 -12 40 -22 35 -27" />
+                        <path d="M60 0 C65 -10 60 -20 55 -25" />
+                        <path d="M80 0 C85 -15 80 -25 75 -30" />
+                        <path d="M100 0 C105 -12 100 -22 95 -27" />
+                        <path d="M120 0 C125 -10 120 -20 115 -25" />
+                        <path d="M140 0 C145 -15 140 -25 135 -30" />
+                        <path d="M160 0 C165 -12 160 -22 155 -27" />
+                        <path d="M180 0 C185 -10 180 -20 175 -25" />
+                        <path d="M200 0 C205 -15 200 -25 195 -30" />
+                        <path d="M220 0 C225 -12 220 -22 215 -27" />
+                        <path d="M240 0 C245 -10 240 -20 235 -25" />
+                        <path d="M260 0 C265 -15 260 -25 255 -30" />
+                        <path d="M280 0 C285 -12 280 -22 275 -27" />
+                        <path d="M300 0 C305 -10 300 -20 295 -25" />
+                        <path d="M320 0 C325 -15 320 -25 315 -30" />
+                        <path d="M340 0 C345 -12 340 -22 335 -27" />
+                        <path d="M360 0 C365 -10 360 -20 355 -25" />
+                        <path d="M380 0 C385 -15 380 -25 375 -30" />
+                        <path d="M400 0 C405 -12 400 -22 395 -27" />
+                    </g>
+
+                    <g transform="translate(5,290)">
+                      <path d="M0 0 C5 -10 0 -20 -5 -25" />
+                      <path d="M20 0 C25 -15 20 -25 15 -30" />
+                      <path d="M40 0 C45 -12 40 -22 35 -27" />
+                      <path d="M60 0 C65 -10 60 -20 55 -25" />
+                      <path d="M80 0 C85 -15 80 -25 75 -30" />
+                      <path d="M100 0 C105 -12 100 -22 95 -27" />
+                      <path d="M120 0 C125 -10 120 -20 115 -25" />
+                      <path d="M140 0 C145 -15 140 -25 135 -30" />
+                      <path d="M160 0 C165 -12 160 -22 155 -27" />
+                      <path d="M180 0 C185 -10 180 -20 175 -25" />
+                      <path d="M200 0 C205 -15 200 -25 195 -30" />
+                      <path d="M220 0 C225 -12 220 -22 215 -27" />
+                      <path d="M240 0 C245 -10 240 -20 235 -25" />
+                      <path d="M260 0 C265 -15 260 -25 255 -30" />
+                      <path d="M280 0 C285 -12 280 -22 275 -27" />
+                      <path d="M300 0 C305 -10 300 -20 295 -25" />
+                      <path d="M320 0 C325 -15 320 -25 315 -30" />
+                      <path d="M340 0 C345 -12 340 -22 335 -27" />
+                      <path d="M360 0 C365 -10 360 -20 355 -25" />
+                      <path d="M380 0 C385 -15 380 -25 375 -30" />
+                      <path d="M400 0 C405 -12 400 -22 395 -27" />
+                  </g>
+
+                  <g transform="translate(10,310)">
+                    <path d="M0 0 C5 -10 0 -20 -5 -25" />
+                    <path d="M20 0 C25 -15 20 -25 15 -30" />
+                    <path d="M40 0 C45 -12 40 -22 35 -27" />
+                    <path d="M60 0 C65 -10 60 -20 55 -25" />
+                    <path d="M80 0 C85 -15 80 -25 75 -30" />
+                    <path d="M100 0 C105 -12 100 -22 95 -27" />
+                    <path d="M120 0 C125 -10 120 -20 115 -25" />
+                    <path d="M140 0 C145 -15 140 -25 135 -30" />
+                    <path d="M160 0 C165 -12 160 -22 155 -27" />
+                    <path d="M180 0 C185 -10 180 -20 175 -25" />
+                    <path d="M200 0 C205 -15 200 -25 195 -30" />
+                    <path d="M220 0 C225 -12 220 -22 215 -27" />
+                    <path d="M240 0 C245 -10 240 -20 235 -25" />
+                    <path d="M260 0 C265 -15 260 -25 255 -30" />
+                    <path d="M280 0 C285 -12 280 -22 275 -27" />
+                    <path d="M300 0 C305 -10 300 -20 295 -25" />
+                    <path d="M320 0 C325 -15 320 -25 315 -30" />
+                    <path d="M340 0 C345 -12 340 -22 335 -27" />
+                    <path d="M360 0 C365 -10 360 -20 355 -25" />
+                    <path d="M380 0 C385 -15 380 -25 375 -30" />
+                    <path d="M400 0 C405 -12 400 -22 395 -27" />
+                </g>
+                </g>
+            </g>
+
+            <!-- Enhanced stars -->
+            <g filter="url(#extremeNeonGlow)">
+                <circle cx="50" cy="30" r="1.5" fill="#ffff00" opacity="0.8"/>
+                <circle cx="120" cy="45" r="2" fill="#ffff00" opacity="0.9"/>
+                <circle cx="200" cy="20" r="1.5" fill="#ffff00" opacity="0.7"/>
+                <circle cx="280" cy="50" r="1.8" fill="#ffff00" opacity="0.9"/>
+                <circle cx="350" cy="25" r="1.5" fill="#ffff00" opacity="0.8"/>
+                <circle cx="30" cy="80" r="2" fill="#ffff00" opacity="0.9"/>
+                <circle cx="150" cy="70" r="1.5" fill="#ffff00" opacity="0.7"/>
+                <circle cx="300" cy="90" r="2" fill="#ffff00" opacity="0.8"/>
+                <circle cx="380" cy="85" r="1.5" fill="#ffff00" opacity="0.9"/>
+                <circle cx="75" cy="120" r="1.8" fill="#ffff00" opacity="0.7"/>
+                <circle cx="250" cy="150" r="1.5" fill="#ffff00" opacity="0.8"/>
+                <circle cx="330" cy="130" r="2" fill="#ffff00" opacity="0.9"/>
+            </g>
+
+            <!-- Roses with corrected rotation points -->
+            <!-- Center rose -->
+            <g transform="translate(200, 240)">
+                <g>
+                    <animateTransform
+                        attributeName="transform"
+                        attributeType="XML"
+                        type="rotate"
+                        dur="4s"
+                        values="-2 0 0; 2 0 0; -2 0 0"
+                        repeatCount="indefinite"
+                        calcMode="spline"
+                        keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"/>
+                    <path d="M0 -90 L0 0" stroke="#2E8B57" stroke-width="4" fill="none"/>
+                    <path d="M0 -45 Q-20 -55 -10 -65" fill="#2E8B57"/>
+                    <path d="M0 -25 Q20 -35 10 -45" fill="#2E8B57"/>
+                    <g transform="translate(0, -90)">
+                        <path d="M0 0 C-20 -10 -20 -30 0 -20 C20 -30 20 -10 0 0" fill="#cc0000"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(72)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(144)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(216)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(288)"/>
+                    </g>
+                </g>
+            </g>
+
+            <!-- Left rose -->
+            <g transform="translate(160, 260)">
+                <g transform="scale(0.8)">
+                    <animateTransform
+                        attributeName="transform"
+                        attributeType="XML"
+                        type="rotate"
+                        dur="4.2s"
+                        values="-2 0 0; 2 0 0; -2 0 0"
+                        repeatCount="indefinite"
+                        calcMode="spline"
+                        keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"/>
+                    <path d="M0 -90 L0 0" stroke="#2E8B57" stroke-width="4" fill="none"/>
+                    <path d="M0 -45 Q-20 -55 -10 -65" fill="#2E8B57"/>
+                    <path d="M0 -25 Q20 -35 10 -45" fill="#2E8B57"/>
+                    <g transform="translate(0, -90)">
+                        <path d="M0 0 C-20 -10 -20 -30 0 -20 C20 -30 20 -10 0 0" fill="#cc0000"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(72)"/>                            <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(144)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(216)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(288)"/>
+                    </g>
+                </g>
+            </g>
+
+            <g transform="translate(76, 230)">
+                <g>
+                    <animateTransform
+                        attributeName="transform"
+                        attributeType="XML"
+                        type="rotate"
+                        dur="5.5s"
+                        values="-2 0 0; 2 0 0; -2 0 0"
+                        repeatCount="indefinite"
+                        calcMode="spline"
+                        keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"/>
+                    <path d="M0 -90 L0 0" stroke="#2E8B57" stroke-width="3" fill="none"/>
+                    <path d="M0 -45 Q-20 -55 -10 -65" fill="#2E8B57"/>
+                    <path d="M0 -25 Q20 -35 10 -45" fill="#2E8B57"/>
+                    <g transform="translate(0, -90)">
+                        <path d="M0 0 C-20 -10 -20 -30 0 -20 C20 -30 20 -10 0 0" fill="#cc0000"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(72)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(144)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(216)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(288)"/>
+                    </g>
+                </g>
+            </g>
+
+            <g transform="translate(130, 220)">
+                <g transform="scale(0.8)">
+                    <animateTransform
+                        attributeName="transform"
+                        attributeType="XML"
+                        type="rotate"
+                        dur="4.2s"
+                        values="-2 0 0; 2 0 0; -2 0 0"
+                        repeatCount="indefinite"
+                        calcMode="spline"
+                        keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"/>
+                    <path d="M0 -90 L0 0" stroke="#2E8B57" stroke-width="4" fill="none"/>
+                    <path d="M0 -45 Q-20 -55 -10 -65" fill="#2E8B57"/>
+                    <path d="M0 -25 Q20 -35 10 -45" fill="#2E8B57"/>
+                    <g transform="translate(0, -90)">
+                        <path d="M0 0 C-20 -10 -20 -30 0 -20 C20 -30 20 -10 0 0" fill="#cc0000"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(72)"/>                            <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(144)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(216)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(288)"/>
+                    </g>
+                </g>
+            </g>
+
+            <g transform="translate(200, 290)">
+                <g>
+                    <animateTransform
+                        attributeName="transform"
+                        attributeType="XML"
+                        type="rotate"
+                        dur="5s"
+                        values="-2 0 0; 2 0 0; -2 0 0"
+                        repeatCount="indefinite"
+                        calcMode="spline"
+                        keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"/>
+                    <path d="M0 -90 L0 0" stroke="#2E8B57" stroke-width="3" fill="none"/>
+                    <path d="M0 -45 Q-20 -55 -10 -65" fill="#2E8B57"/>
+                    <path d="M0 -25 Q20 -35 10 -45" fill="#2E8B57"/>
+                    <g transform="translate(0, -90)">
+                        <path d="M0 0 C-20 -10 -20 -30 0 -20 C20 -30 20 -10 0 0" fill="#cc0000"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(72)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(144)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(216)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(288)"/>
+                    </g>
+                </g>
+            </g>
+
+            <g transform="translate(110, 290)">
+                <g>
+                    <animateTransform
+                        attributeName="transform"
+                        attributeType="XML"
+                        type="rotate"
+                        dur="4.5s"
+                        values="-2 0 0; 2 0 0; -2 0 0"
+                        repeatCount="indefinite"
+                        calcMode="spline"
+                        keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"/>
+                    <path d="M0 -90 L0 0" stroke="#2E8B57" stroke-width="3" fill="none"/>
+                    <path d="M0 -45 Q-20 -55 -10 -65" fill="#2E8B57"/>
+                    <path d="M0 -25 Q20 -35 10 -45" fill="#2E8B57"/>
+                    <g transform="translate(0, -90)">
+                        <path d="M0 0 C-20 -10 -20 -30 0 -20 C20 -30 20 -10 0 0" fill="#cc0000"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(72)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(144)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(216)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(288)"/>
+                    </g>
+                </g>
+            </g>
+
+            <g transform="translate(260, 220)">
+                <g>
+                    <animateTransform
+                        attributeName="transform"
+                        attributeType="XML"
+                        type="rotate"
+                        dur="3s"
+                        values="-2 0 0; 2 0 0; -2 0 0"
+                        repeatCount="indefinite"
+                        calcMode="spline"
+                        keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"/>
+                    <path d="M0 -90 L0 0" stroke="#2E8B57" stroke-width="3" fill="none"/>
+                    <path d="M0 -45 Q-20 -55 -10 -65" fill="#2E8B57"/>
+                    <path d="M0 -25 Q20 -35 10 -45" fill="#2E8B57"/>
+                    <g transform="translate(0, -90)">
+                        <path d="M0 0 C-20 -10 -20 -30 0 -20 C20 -30 20 -10 0 0" fill="#cc0000"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(72)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(144)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(216)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(288)"/>
+                    </g>
+                </g>
+            </g>
+
+            <g transform="translate(240, 270)">
+                <g>
+                    <animateTransform
+                        attributeName="transform"
+                        attributeType="XML"
+                        type="rotate"
+                        dur="3s"
+                        values="-2 0 0; 2 0 0; -2 0 0"
+                        repeatCount="indefinite"
+                        calcMode="spline"
+                        keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"/>
+                    <path d="M0 -90 L0 0" stroke="#2E8B57" stroke-width="3" fill="none"/>
+                    <path d="M0 -45 Q-20 -55 -10 -65" fill="#2E8B57"/>
+                    <path d="M0 -25 Q20 -35 10 -45" fill="#2E8B57"/>
+                    <g transform="translate(0, -90)">
+                        <path d="M0 0 C-20 -10 -20 -30 0 -20 C20 -30 20 -10 0 0" fill="#cc0000"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(72)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(144)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(216)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(288)"/>
+                    </g>
+                </g>
+            </g>
+
+            <g transform="translate(320, 230)">
+                <g>
+                    <animateTransform
+                        attributeName="transform"
+                        attributeType="XML"
+                        type="rotate"
+                        dur="3s"
+                        values="-2 0 0; 2 0 0; -2 0 0"
+                        repeatCount="indefinite"
+                        calcMode="spline"
+                        keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"/>
+                    <path d="M0 -90 L0 0" stroke="#2E8B57" stroke-width="3" fill="none"/>
+                    <path d="M0 -45 Q-20 -55 -10 -65" fill="#2E8B57"/>
+                    <path d="M0 -25 Q20 -35 10 -45" fill="#2E8B57"/>
+                    <g transform="translate(0, -90)">
+                        <path d="M0 0 C-20 -10 -20 -30 0 -20 C20 -30 20 -10 0 0" fill="#cc0000"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(72)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(144)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(216)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(288)"/>
+                    </g>
+                </g>
+            </g>
+
+            <g transform="translate(300, 290)">
+                <g>
+                    <animateTransform
+                        attributeName="transform"
+                        attributeType="XML"
+                        type="rotate"
+                        dur="3s"
+                        values="-2 0 0; 2 0 0; -2 0 0"
+                        repeatCount="indefinite"
+                        calcMode="spline"
+                        keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"/>
+                    <path d="M0 -90 L0 0" stroke="#2E8B57" stroke-width="3" fill="none"/>
+                    <path d="M0 -45 Q-20 -55 -10 -65" fill="#2E8B57"/>
+                    <path d="M0 -25 Q20 -35 10 -45" fill="#2E8B57"/>
+                    <g transform="translate(0, -90)">
+                        <path d="M0 0 C-20 -10 -20 -30 0 -20 C20 -30 20 -10 0 0" fill="#cc0000"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(72)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(144)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#990000" transform="rotate(216)"/>
+                        <path d="M0 0 C-25 -5 -25 -25 0 -15 C25 -25 25 -5 0 0" fill="#cc0000" transform="rotate(288)"/>
+                    </g>
+                </g>
+            </g>
+
+        </svg>
+    </div>
 </body>
 </html>
